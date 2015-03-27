@@ -21,4 +21,29 @@ Route::get('/galeria', array(
     'uses' => 'HomeController@galeria'
 ));
 
+Route::group(array('before' => 'auth'), function(){
+    Route::get('/admin', array(
+    'as' => 'admin',
+    'uses' => 'AdminController@index'
+));
+    
+});
+
+Route::group(array('before' => 'guest'), function(){
+    
+    Route::group(array('before' => 'csrf'), function(){
+              
+        Route::post('admin/login', array(
+            'as'   => 'login-post',
+            'uses' => 'AccountController@postSignIn'
+        ));
+        
+    }); 
+    Route::get('/admin/login', array(
+        'as'   => 'login-get',
+        'uses' => 'AccountController@getSignIn'
+    ));
+    
+});
+
 
