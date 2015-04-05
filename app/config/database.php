@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'fiko',
+			'database'  => 'cepa',
 			'username'  => 'root',
 			'password'  => 'root',
 			'charset'   => 'utf8',

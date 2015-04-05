@@ -1,46 +1,36 @@
-@extends('layout.admin')
-
-@section('content-admin')
-<div class="container">
-      <!-- Main component for a primary marketing message or call to action -->
-      <div style="width: 100%; overflow: hidden; padding: 20px;">
-          <div style=" float: left;">
-              <div><img src="{{ URL::to('images/logo.png') }}"> </div>
-              <div> ERP 2015</div>
-          </div>
-          <div id="login" class="jumbotron">
-
-              <div style="">
-                  <form class="form-horizontal" role="form" action ="{{ URL::route('account-sign-in-post') }}" method="post">
-                      <div class="form-group">
-                      </div>
-
-                      <div class="form-group">
-                          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                          <div class="col-sm-7">
-                              <input type="text" name="email" class="form-control" placeholder="Enter Email" {{ Input::old('email') ? 'value="'.e(Input::old('email')).'"': '' }}>
-                                     @if($errors->has('email'))
+<html>
+    <head>
+        <title>CEPA - Admin</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="icon" href="{{ URL::to('img/favicon.ico') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>       
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">   
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{{ URL::to('css/login.css') }}">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    </head>
+    <body>
+    <div class="container">
+        <div style="margin:0 auto 0 auto; width:150px;">
+            <img  src="{{ URL::to('images/logo_header.png') }}" >
+        </div><form class=" form-signin" role="form" action ="{{ URL::route('login-post') }}" method="post">
+        <h2 class="form-signin-heading">Iniciar sesión</h2>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email"  required autofocus {{ Input::old('email') ? 'value="'.e(Input::old('email')).'"': '' }}>
+         @if($errors->has('email'))
                                      {{ $errors->first('email') }}
                                      @endif
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <label for="inputPassword3" class="col-sm-2 control-label">Contraseña</label>
-                          <div class="col-sm-7">
-                              <input type="password" name="password" class="form-control" placeholder="Enter Password" {{ Input::old('password') ? 'value="'.e(Input::old('password')).'"': '' }}>
-                                     @if($errors->has('password'))
-                                     {{ $errors->first('password') }}
-                                     @endif
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <div class="col-sm-offset-2 col-sm-10">
-                              <button type="submit" class="btn btn-primary">Ingresar</button>
-                              {{ Form::token() }}
-                          </div>
-                      </div>
-                  </form>
-              </div>    
-          </div>
-      </div>
-@stop
+               <label for="inputPassword" class="sr-only">Contraseña</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Contraseña" required {{ Input::old('password') ? 'value="'.e(Input::old('password')).'"': '' }}>
+        
+               @if($errors->has('password'))
+            {{ $errors->first('password') }}
+           @endif
+               <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+        {{ Form::token() }}
+      </form>
+    </div> <!-- /container -->
+    </body>
+</html>
