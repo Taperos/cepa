@@ -3,7 +3,7 @@
 
 class Noticia extends Eloquent{
 
-    protected  $table = 'news';
+    protected  $table = 'noticias';
     
     
    /* public function payments(){

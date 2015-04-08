@@ -55,6 +55,26 @@ Route::get('/admin', array(
     'uses' => 'NewsController@postAddNew'
     )); 
     
+       //GALERIAS
+    
+    Route::get('/admin-ver-galerias', array(
+    'as' => 'admin-ver-galerias',
+    'uses' => 'GaleriasController@getVer'
+    ));
+
+
+    Route::get('/admin-agregar-galeria', array(
+    'as' => 'admin-agregar-galeria',
+    'uses' => 'GaleriasController@getAgregar'
+    ));
+    
+    Route::post('/admin-agregar-galeria', array(
+    'as' => 'admin-agregar-galeria',
+    'uses' => 'GaleriasController@postAgregar'
+    ));
+    
+    Route::get('/admin-ver-galeria/{id}', 'GaleriasController@galeria');
+    
 Route::group(array('before' => 'auth'), function(){
 
     

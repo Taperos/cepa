@@ -1,19 +1,19 @@
 @extends('layout.admin')
 @section('content-admin')
 
-<h1 class="page-header"><b> <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i> Agregar noticia</b></h1>
+<h1 class="page-header"><b> <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i> Agregar galeria</b></h1>
 <div class="row placeholders">
 <div>
-    {{ Form::open(array('url' => 'admin-agregar-noticia', 'class' => 'form-horizontal', 'files' => true )) }}
+    {{ Form::open(array('url' => 'admin-agregar-galeria', 'class' => 'form-horizontal', 'files' => true )) }}
     <div class="form-group">
         <div class="col-lg-2">
-            {{ Form::label('nombre', 'TÍTULO', array('class' => 'col-sm-2 control-label'))}}
+            {{ Form::label('nombre', 'NOMBRE', array('class' => 'col-sm-2 control-label'))}}
         </div>
         
         <div class="col-lg-10">
-            {{ Form::text('titulo', null, array('class' => 'form-control', 'placeholder' => 'Ingrese título de noticia'), Input::old('titulo'))}}
-            @if($errors->has('titulo'))
-            {{ $errors->first('titulo') }}
+            {{ Form::text('nombre', null, array('class' => 'form-control', 'placeholder' => 'Ingrese nombre de galeria'), Input::old('nombre'))}}
+            @if($errors->has('nombre'))
+            {{ $errors->first('nombre') }}
             @endif
         </div>
     </div>
@@ -30,6 +30,19 @@
             @endif
         </div>
 
+    </div>
+    <div class="form-group">
+        <div class="col-lg-2">
+            {{ Form::label('Imagenes', 'IMAGENES', array('class' => 'col-sm-2 control-label'))}}
+        </div>
+        
+        <div class="col-lg-10">
+            {{ Form::file('images[]', array('multiple'=>true, 'class' => 'filestyle')) }}
+            
+            @if($errors->has('nombre'))
+            {{ $errors->first('nombre') }}
+            @endif
+        </div>
     </div>
     <div class="form-group" style="background-color: #DADADA; padding: 20px; border-radius: 5px;">
         <div class="">

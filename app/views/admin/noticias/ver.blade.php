@@ -27,5 +27,6 @@
     </div>
     
 </div>
+
 <div style="float: right"> {{$noticias->links()}}</div>
 @stop
