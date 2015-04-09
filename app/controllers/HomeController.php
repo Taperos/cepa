@@ -29,5 +29,34 @@ class HomeController extends BaseController {
         return View::make('galeria')
                 ->with('galerias', $galerias);
     }
+    
+    public function beca() {
+         $becas = Beca::all();
+        return View::make('beca')
+                ->with('becas', $becas);
+                
+    }
+    
+    public function verBeca($id){
+        $becas = Beca::all();
+        $beca = Beca::find($id);
+        return View::make('ver-beca')
+                ->with('becas', $becas)
+                ->with('beca', $beca);
+    }
+
+
+    public function taller() {
+       $talleres = Taller::all();
+        return View::make('taller')
+                ->with('talleres', $talleres);
+                
+    }
+    
+    public function contacto() {
+        
+        return View::make('contacto');
+                
+    }
 
 }

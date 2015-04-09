@@ -1,58 +1,59 @@
 @extends('layout.main')
 @section('content')
-<div class="div" style="overflow: hidden; padding-top: 20px; ">
-    <div style="position: relative; width: 140px; top: 145px; left: 37%;">
+<div>
 
-        <img class="badge" src="images/badge.png" style=/>
-    </div>
+                <div class="small-4 small-centered large-4 large-centered columns" style="position: relative;">
 
-
-    <div class="flexslider" style=" overflow: hidden; height: 400px;">
+                    <img class="home-badge" alt="Es Nuestro San Juan!" src="images/badge.png"/>
 
 
+                </div>
+                <div id="owl-home" class="owl-carousel owl-theme" style="position: relative;">
+
+                    <div class="item"><img src="images/3.jpg" alt="1"></div>
+                    <div class="item"><img src="images/6.jpg" alt="2"></div>
+                    <div class="item"><img src="images/9.jpg" alt="3"></div>
+                    <div class="item"><img src="http://owlgraphic.com/owlcarousel/demos/assets/owl4.jpg" alt="3"></div>
+
+                </div>
 
 
-        <ul class="slides" style="position: absolute; top: -100px;">
-            <li>
-                <img src="images/3.jpg"/>
-            </li>
-            <li>
-                <img src="images/6.jpg" />
-            </li>
-            <li>
-                <img src="images/9.jpg" />
-            </li>
-        </ul>
-    </div>
-
-    <div style="margin-top: 20px;" class=" medium-4 large-4 columns">
-        <div class="row padding-10">
-            <div class="row" style="padding-top: 100px;background: rgba(255, 160, 0, 0.5); background-image: url('http://owlgraphic.com/owlcarousel/demos/assets/owl6.jpg'); height: 200px; background-size: cover; width: 100%;">
-                <div style="background-color: red; float: left; width: 90%; padding: 20px;">
-                     TAPA EN LA CARA
+                <div class="noticia medium-4 large-4 columns">
+                    <div class="row">
+                        <div class="noticia-img" style="background-image: url('images/3.jpg');">
+                            <div class="noticia-cuadro cuadro-color-1">
+                                <p class="brody">Noticia<br> Número 1</p>
+                            </div>
+                        </div>
+                        <div class="texto-normal justificado">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim
+                        </div>
+                    </div>
+                </div>
+                <div class="noticia medium-4 large-4 columns">
+                    <div class="row">
+                        <div class="noticia-img" style="background-image: url('images/9.jpg');">
+                            <div class="noticia-cuadro cuadro-color-2">
+                                <p class="brody">Noticia<br> Número 2</p>
+                            </div>
+                        </div>
+                        <div class="texto-normal justificado">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim
+                        </div>
+                    </div>
+                </div>
+                <div class="noticia medium-4 large-4 columns">
+                    <div class="row">
+                        <div class="noticia-img" style="background-image: url('images/6.jpg');">
+                            <div class="noticia-cuadro cuadro-color-3">
+                                <p class="brody">Noticia<br> Número 3</p>
+                            </div>
+                        </div>
+                        <div class="texto-normal justificado">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim
+                        </div>
+                    </div>
                 </div>
                
             </div>
-            <div>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim
-        </div>
-        </div>
-    </div>
-     <div style="margin-top: 20px;" class=" medium-4  large-4 columns">
-        <div class="row padding-10">
-            <div style="background: rgba(255, 160, 0, 0.5); background-image: url('http://owlgraphic.com/owlcarousel/demos/assets/owl6.jpg'); height: 200px;"></div>
-            <div>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim
-        </div>
-        </div>
-    </div>
-     <div style="margin-top: 20px;" class=" medium-4 large-4  columns">
-        <div class="row padding-10">
-            <div style="background: rgba(255, 160, 0, 0.5); background-image: url('http://owlgraphic.com/owlcarousel/demos/assets/owl6.jpg'); height: 200px;"></div>
-            <div>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim
-        </div>
-        </div>
-    </div>
-    </div>
 @stop

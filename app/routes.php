@@ -32,7 +32,26 @@ Route::get('/', array(
 Route::get('/galeria', array(
     'as' => 'galeria',
     'uses' => 'HomeController@galeria'
-));  
+));
+Route::get('/beca', array(
+    'as' => 'beca',
+    'uses' => 'HomeController@beca'
+));
+
+Route::get('/ver-beca/{id}', array(
+            'as'   => 'ver-beca',
+            'uses' => 'HomeController@verBeca'
+    ));
+
+
+Route::get('/taller', array(
+    'as' => 'taller',
+    'uses' => 'HomeController@taller'
+));
+Route::get('/contacto', array(
+    'as' => 'contacto',
+    'uses' => 'HomeController@contacto'
+)); 
 
 //RUTAS DONDE SÓLO PUEDES ACCEDER CUANDO TE LOGUEAS   
 Route::group(array('before' => 'auth'), function(){

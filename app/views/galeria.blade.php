@@ -15,7 +15,7 @@
     <div class="small-9 small-centered columns">  
         <div id="owl-demo-{{$contador}}" class="owl-demo">
             @foreach($galeria->imagenes as $imagen)
-            <div class="item"><a href="{{ URL::to('archivos/img/'.$imagen->url) }}" data-lightbox="roadtrip{{$contador}}"><img src="{{ URL::to('archivos/img/'.$imagen->url) }}"></a></div>
+            <a href="{{ URL::to('archivos/img/'.$imagen->url) }}" data-lightbox="roadtrip{{$contador}}" style="padding:0px 5px 0px 5px !important; display: block;"><div class="item" style="background-image: url('{{ URL::to('archivos/img/'.$imagen->url) }}'); width: 100%; min-height: 200px; background-position: center center; background-size: cover;"></div></a>
             @endforeach 
         </div>
     </div>
@@ -26,7 +26,7 @@
                 $("#owl-demo-<?php echo $contador; ?>").owlCarousel({
 
                     autoPlay: 3000, //Set AutoPlay to 3 seconds
-                    items : 4,
+                    items : 6,
                     itemsDesktop : [1199,5],
                     itemsDesktopSmall : [979,5],
                     navigation: true,

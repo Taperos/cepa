@@ -6,10 +6,11 @@
     <div class="small-9 small-centered columns">  
         <div id="owl-demo" class="owl-demo">
             @foreach($g->imagenes as $imagen)
-            <div class="item"><a href="{{ URL::to('archivos/img/'.$imagen->url) }}" data-lightbox="roadtrip"><img src="{{ URL::to('archivos/img/'.$imagen->url) }}"></a></div>
+            <a href="{{ URL::to('archivos/img/'.$imagen->url) }}" data-lightbox="roadtrip" style="padding:0px 5px 0px 5px !important; display: block;"><div class="item" style="background-image: url('{{ URL::to('archivos/img/'.$imagen->url) }}'); width: 100%; min-height: 200px; background-position: center center; background-size: cover;"></div></a>
             @endforeach
         </div>
     </div>  
+   
 </div>
 @endforeach
 
