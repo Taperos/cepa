@@ -2,24 +2,25 @@
 
 class AccountController extends BaseController{
     
-    public function getLogout(){
+    public function getSignOut(){
        Auth::logout();
-       return Redirect::route('index');;
+       return Redirect::route('admin');;
     }
     
-    public function getlogin(){
+    public function getSignIn(){
+ 
         return View::make('admin.login');
     }
     
-    public function postLogin(){
+    public function postSignIn(){
         $validator = Validator::make(Input::all(), 
                 array(
                    'email' => 'required|email',
-                   'contrasena' => 'required',
+                   'password' => 'required',
                 ));
         if($validator->fails()){
 
-            return Redirect::route('login-get')
+            return Redirect::route('account-sign-in')
                     ->withErrors($validator)
                     ->withInput(); 
                  
@@ -29,22 +30,22 @@ class AccountController extends BaseController{
           
             $auth = (array(
                 'email' => Input::get('email'),
-                'contrasena' => Input::get('contrasena')
+                'password' => Input::get('password')
             ));
             
             if(Auth::attempt($auth)){
-                return Redirect::intended('login-get');
+                return Redirect::intended('/admin');
             }
             else
             {
-                return Redirect::route('login-get')
+                return Redirect::route('account-sign-in')
                         ->with('global', 'Usuario o contraseña incorrectos, o cuenta no activada');
             }
             
             
         }
         
-        return Redirect::route('login-get')
+        return Redirect::route('account-sign-in')
                         ->with('global', 'Ocurrió un problema al ingresar'); 
     }
     

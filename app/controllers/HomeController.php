@@ -24,8 +24,10 @@ class HomeController extends BaseController {
     }
 
     public function galeria() {
-
-        return View::make('galeria');
+        
+       $galerias = Galeria::with('imagenes')->get();
+        return View::make('galeria')
+                ->with('galerias', $galerias);
     }
 
 }

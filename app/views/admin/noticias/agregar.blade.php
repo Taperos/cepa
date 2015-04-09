@@ -31,6 +31,32 @@
         </div>
 
     </div>
+    
+    <div class="form-group">
+        <div class="col-lg-2">
+            {{ Form::label('categoria', 'CATEGORÍA', array('class' => 'col-sm-2 control-label'))}}
+        </div>
+        
+        <div class="col-lg-10">
+            {{ Form::select('categoria', $categorias_combo,'', array('class'=> 'form-control'),Input::old('categoria')) }}
+            @if($errors->has('categoria'))
+            {{ $errors->first('categoria') }}
+            @endif
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-2">
+            {{ Form::label('Imagenes', 'IMAGEN', array('class' => 'col-sm-2 control-label'))}}
+        </div>
+        
+        <div class="col-lg-10">
+            {{ Form::file('imagen', array('class' => 'filestyle'),Input::old('imagen')) }}
+            
+            @if($errors->has('imagen'))
+            {{ $errors->first('imagen') }}
+            @endif
+        </div>
+    </div>
     <div class="form-group" style="background-color: #DADADA; padding: 20px; border-radius: 5px;">
         <div class="">
             {{ Form::submit('AGREGAR', array('class' => 'btn btn-primary'))}}        

@@ -5,7 +5,10 @@ class Noticia extends Eloquent{
 
     protected  $table = 'noticias';
     
-    
+     public function categorias(){
+          return  $this->BelongsTo('Categoria', 'categoria_id');
+        
+    }
    /* public function payments(){
         return $this->hasMany('Payment', 'employee_id');
         

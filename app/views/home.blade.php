@@ -27,7 +27,12 @@
 
     <div style="margin-top: 20px;" class=" medium-4 large-4 columns">
         <div class="row padding-10">
-            <div style="background: rgba(255, 160, 0, 0.5); background-image: url('http://owlgraphic.com/owlcarousel/demos/assets/owl6.jpg'); height: 200px; background-size: cover; width: 100%;"></div>
+            <div class="row" style="padding-top: 100px;background: rgba(255, 160, 0, 0.5); background-image: url('http://owlgraphic.com/owlcarousel/demos/assets/owl6.jpg'); height: 200px; background-size: cover; width: 100%;">
+                <div style="background-color: red; float: left; width: 90%; padding: 20px;">
+                     TAPA EN LA CARA
+                </div>
+               
+            </div>
             <div>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim
         </div>

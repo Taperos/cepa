@@ -13,15 +13,25 @@
     </head>
     <body>
     <div class="container">
+         @if(Session::has('global'))
+    
+              <div>
+                    <div class="bs-example bs-example-bg-classes">
+                        <div class=" div bg-danger" style="padding: 10px; color: #CD3F3F; margin-bottom: 10px; text-align: center; border-radius: 5px; font-size: 20px;"><b>{{ Session::get('global') }} <i class="fa fa-meh-o"></i></b></div>
+                    </div>        
+                </div>
+         
+               
+                @endif
         <div style="margin:0 auto 0 auto; width:150px;">
             <img  src="{{ URL::to('images/logo_header.png') }}" >
-        </div><form class=" form-signin" role="form" action ="{{ URL::route('login-post') }}" method="post">
+        </div><form class=" form-signin" role="form" action ="{{ URL::route('account-sign-in-post') }}" method="post">
         <h2 class="form-signin-heading">Iniciar sesión</h2>
         <label for="inputEmail" class="sr-only">Email</label>
         <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email"  required autofocus {{ Input::old('email') ? 'value="'.e(Input::old('email')).'"': '' }}>
-         @if($errors->has('email'))
+        @if($errors->has('email'))
                                      {{ $errors->first('email') }}
-                                     @endif
+        @endif
                <label for="inputPassword" class="sr-only">Contraseña</label>
         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Contraseña" required {{ Input::old('password') ? 'value="'.e(Input::old('password')).'"': '' }}>
         

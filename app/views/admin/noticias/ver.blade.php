@@ -8,7 +8,9 @@
             <tr>
                 <th style="width: 20%; text-align: justify; text-justify: inter-word;">TÍTULO</th>
                 <th style="text-align: justify; text-justify: inter-word;">CUERPO</th>
-                <th colspan="3" style="width: 1%;">ACCIONES</th>
+                <th style="text-align: justify; text-justify: inter-word;">CATEGORÍA</th>
+                <th style="text-align: justify; text-justify: inter-word;">IMAGEN</th>
+                <th colspan="2" style="width: 1%;">ACCIONES</th>
             </tr>
         </thead>
         <tbody>
@@ -16,8 +18,9 @@
             <tr>
                 <td><i>{{$noticia->titulo}}</i></td>
                 <td>{{$noticia->cuerpo}}...</td>
+                <td>{{$noticia->categorias->nombre}}</td>
+                <td><img width="50px" src="{{ URL::to('archivos/img/'.$noticia->imagen) }}"></td>
                 <td><a style="text-decoration: none; color: #008CBA;" href="#"><i title="Editar" class="fa fa-pencil fa-2x hover-grey"></i></a></td>
-                <td><a style="text-decoration: none; color: #008CBA;" href="#"><i title="Ver" class="fa fa-eye fa-2x hover-grey"></i></a></td>
                 <td><a style="text-decoration: none; color: #008CBA;" href="#"><i title="Eliminar" class="fa fa-times fa-2x hover-grey"></i></a></td>
             </tr>
             @endforeach

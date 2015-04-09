@@ -212,23 +212,15 @@
     min-width: 1000px;
 
 }
-#owl-demo .item{
+.owl-demo .item{
   margin: 3px;
 }
-#owl-demo .item img{
+.owl-demo .item img{
   display: block;
   width: 100%;
   height: auto;
 }
 
-#owl-demo2 .item{
-  margin: 3px;
-}
-#owl-demo2 .item img{
-  display: block;
-  width: 100%;
-  height: auto;
-}
 body{
     background: rgb(238,238,238); /* Old browsers */
     background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */

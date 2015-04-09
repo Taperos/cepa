@@ -27,7 +27,7 @@ class galeriasController extends BaseController {
     }
 
     public function postAgregar() {
-        
+   
         $validator = Validator::make(Input::all(), array(
                     'nombre'      => 'required',
                     'descripcion' => 'required',

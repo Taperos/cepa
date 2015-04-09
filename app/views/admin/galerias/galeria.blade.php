@@ -4,9 +4,9 @@
 <h1 class="page-header"><b><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i>{{ $g->nombre}} <i class="fa fa-camera"></i></b></h1>
 <div class="row placeholders">
     <div class="small-9 small-centered columns">  
-        <div id="owl-demo">
+        <div id="owl-demo" class="owl-demo">
             @foreach($g->imagenes as $imagen)
-            <div class="item"><a href="{{ URL::to('archivos/img/'.$imagen->url) }}" data-lightbox="roadtrip"><img width="200px" src="{{ URL::to('archivos/img/'.$imagen->url) }}"></a></div>
+            <div class="item"><a href="{{ URL::to('archivos/img/'.$imagen->url) }}" data-lightbox="roadtrip"><img src="{{ URL::to('archivos/img/'.$imagen->url) }}"></a></div>
             @endforeach
         </div>
     </div>  

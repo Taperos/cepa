@@ -7,11 +7,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="{{ URL::to('js/owl.carousel.js') }}"></script>
         <script src="{{ URL::to('js/lightbox.min.js') }}"></script>
+        <script src="{{URL::to('js/jquery-ui-1.9.2.custom.min.js')}}"></script>
         <script type="text/javascript" src="{{ URL::to('js/bootstrap-filestyle.js') }}"> </script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>       
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">   
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{{ URL::to('css/estilo.css') }}">
+        <link rel="stylesheet" href="{{ URL::to('css/jquery-ui.css') }}">
         <link rel="stylesheet" href="{{ URL::to('css/owl.carousel.css') }}">
         <link rel="stylesheet" href="{{ URL::to('css/owl.theme.css') }}">
         <link rel="stylesheet" href="{{ URL::to('css/lightbox.css') }}">
@@ -45,18 +47,12 @@
                                 <li><a href="#">One more separated link</a></li>-->
                             </ul>
                         </li>
-                        <li class="dropdown disabled">
-                            <a href="#" class="dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-expanded="false">Talleres <span class="caret"></span></a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Talleres <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Perfil</a></li>
-                                <li><a href="#">Actualizar perfil</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Ver usuarios</a></li>
-                                <li><a href="#">Crear usuario</a></li>
-                                <!--<li class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>-->
+                                <li><a href="{{ URL::route('admin-ver-talleres') }}">Ver talleres</a></li>
+                                <li><a href="{{ URL::route('admin-agregar-taller') }}">Crear taller</a></li>
+                                <li><a href="#">Quitar taller</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -70,36 +66,23 @@
                                 <li><a href="#">One more separated link</a></li>-->
                             </ul>
                         </li>
-                        <li class="dropdown disabled">
-                            <a href="#" class="dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-expanded="false">Actividades <span class="caret"></span></a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Actividades <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Perfil</a></li>
-                                <li><a href="#">Actualizar perfil</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Ver usuarios</a></li>
-                                <li><a href="#">Crear usuario</a></li>
-                                <!--<li class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>-->
+                                <li><a href="{{ URL::route('admin-ver-actividades') }}">Ver actividades</a></li>
+                                <li><a href="{{ URL::route('admin-agregar-actividad') }}">Crear actividad</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown disabled">
-                            <a href="#" class="dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-expanded="false">Usuarios <span class="caret"></span></a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Becas <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Perfil</a></li>
-                                <li><a href="#">Actualizar perfil</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Ver usuarios</a></li>
-                                <li><a href="#">Crear usuario</a></li>
-                                <!--<li class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>-->
+                                <li><a href="{{ URL::route('admin-ver-becas') }}">Ver becas</a></li>
+                                <li><a href="{{ URL::route('admin-agregar-beca') }}">Crear beca</a></li>
                             </ul>
                         </li>
+                        <li><a href="{{ URL::route('admin-ver-contactos') }}">Contactos</a></li>
                         <li class="divider"></li>
-                        <li class="disabled"><a href="#">Cerrar Sesiòn</a></li>
+                        <li><a href="{{ URL::route('account-sign-out') }}">Cerrar Sesión</a></li>
                     </ul>
                     <!--
                   <form class="navbar-form navbar-right">
@@ -116,10 +99,10 @@
                 <div class="col-sm-3 col-md-2 sidebar">
                     <h4><b>Atajos</b></h4>
                     <ul class="nav nav-sidebar">
-                        <li><a href="{{ URL::route('admin-agregar-noticia') }}">Agregar noticia <i class="fa fa-newspaper-o"></i><span class="sr-only">(current)</span></a></li>
-                        <li><a href="{{ URL::route('admin-agregar-galeria') }}">Agregar galeria <i class="fa fa-camera"></i></a></li>
-                        <li class="disabled"><a href="#">Agregar imagen <i class="fa fa-camera"></i></a></li>
-                        <li class="disabled"><a href="#">Agregar taller</a></li>
+                        <li><a href="{{ URL::route('admin-agregar-noticia') }}">Agregar noticia<span class="sr-only">(current)</span></a></li>
+                        <li><a href="{{ URL::route('admin-agregar-galeria') }}">Agregar galeria</a></li>
+                        <li><a href="{{ URL::route('admin-agregar-actividad') }}">Agregar actividad</a></li>
+                        <li><a href="{{ URL::route('admin-agregar-taller') }}">Agregar taller</a></li>
                     </ul>
                 </div>
                 @if(Session::has('global'))

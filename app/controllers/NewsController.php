@@ -23,7 +23,10 @@ class NewsController extends BaseController {
     
     public function getAddNew() {
 
-        return View::make('admin.noticias.agregar');
+        $categorias = Categoria::where('id', '!=', 0)->get()->lists('nombre', 'id');
+        $categorias_combo = array(0 => "Seleccione una categoría ... ") + $categorias;
+        $selected = array();
+        return View::make('admin.noticias.agregar', compact('categorias_combo','selected' ));
     }
 
     public function postAddNew() {
@@ -31,6 +34,8 @@ class NewsController extends BaseController {
         $validator = Validator::make(Input::all(), array(
                     'titulo'      => 'required',
                     'descripcion' => 'required',
+                    'categoria'   => 'required',
+                    'imagen'      => 'required',
                         ), array(
                     'required' => 'Este campo no puede quedar vacio',
         ));
@@ -44,11 +49,25 @@ class NewsController extends BaseController {
 
             $titulo      = Input::get('titulo');
             $descripcion = Input::get('descripcion');
+            $categoria   = Input::get('categoria');
 
+            if(Input::file('imagen')){
+                
+                $imagen = Input::File('imagen')
+                            ->move('archivos/img', $titulo.'_noticia_'.Input::File('imagen')->getClientOriginalName());
+                $imagen = $titulo. '_noticia_'.Input::File('imagen')->getClientOriginalName();
+            }
+            else{
+                
+                $imagen = NULL;
+            }
+       
             $noticia = new Noticia();
 
             $noticia->titulo = $titulo;
             $noticia->cuerpo = $descripcion;
+            $noticia->categoria_id = $categoria;
+            $noticia->imagen = $imagen;
 
             if ($noticia->save()) {
                 return Redirect::route('admin-agregar-noticia')
