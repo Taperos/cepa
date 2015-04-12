@@ -15,10 +15,11 @@ class CreateActividadesTable extends Migration {
 		 Schema::create('actividades', function($table){
                    
                     $table->increments('id');
-                    $table->string('nombre', 100);
+                    $table->string('nombre');
+                    $table->integer('importante');
                     $table->date('fecha_inicio');
                     $table->date('fecha_termino');
-                    $table->string('descripcion', 10000);
+                    $table->string('descripcion');
                     $table->timestamps();
                 });
 	}

@@ -9,6 +9,7 @@
                 <th style="width: 20%; text-align: justify; text-justify: inter-word;">NOMBRE</th>
                 <th style="width: 1%;text-align: justify; text-justify: inter-word;">EMAIL</th>
                 <th style="text-align: justify; text-justify: inter-word;">MENSAJE</th>
+                <th style="text-align: justify; text-justify: inter-word;">FECHA</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@
                 <td><i>{{$contacto->nombre}}</i></td>
                 <td>{{$contacto->email}}</td>
                 <td>{{$contacto->mensaje}}</td>
+                <td>{{$contacto->created_at}}</td>
             </tr>
             @endforeach
         </tbody>

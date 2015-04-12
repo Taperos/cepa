@@ -27,7 +27,7 @@ class ActividadesController extends BaseController {
     }
 
     public function postAddNew() {
-
+     
         $validator = Validator::make(Input::all(), array(
                     'nombre'      => 'required',
                     'descripcion' => 'required',
@@ -43,6 +43,15 @@ class ActividadesController extends BaseController {
                             ->withInput();
         } else {
 
+            if (Input::has('importante'))
+                {
+                   $importante = 1;
+                }
+                
+               else{
+                   $importante = 0;
+                }
+
             $nombre      = Input::get('nombre');
             $descripcion = Input::get('descripcion');
             $fecha       = Input::get('fecha');
@@ -52,12 +61,36 @@ class ActividadesController extends BaseController {
             $actividad->nombre = $nombre;
             $actividad->descripcion = $descripcion;
             $actividad->fecha_inicio = $fecha;
+            $actividad->importante = $importante;
 
             if ($actividad->save()) {
                 return Redirect::route('admin-agregar-actividad')
                                 ->with('global', 'Actividad agregada con éxito');
             }
         }
+    }
+    
+    public function show() {
+
+        $actividades = Actividad::all();
+        $contador = 1;
+        $dates = array();
+        foreach ($actividades as $actividad){
+            if($actividad->importante == 1){
+                $importante = true;
+            }else{
+                $importante = false;
+            }
+             $dates[$contador] = array(
+                'date' => $actividad->fecha_inicio,
+                'badge' => $importante,
+                'title' => $actividad->nombre.', '.$actividad->descripcion,
+                'body' => '<p class="lead">'.$actividad->descripcion.'</p>',
+                'footer' => 'none',
+            );
+            $contador++;
+        }
+        echo json_encode($dates);
     }
 
 }

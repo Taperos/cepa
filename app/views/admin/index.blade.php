@@ -1,13 +1,8 @@
 @extends('layout.admin')
 @section('content-admin')
-<h1 class="page-header">Index Administrador</h1>
-<div class="row placeholders">
+<h1 class="page-header"><b>Bienvenido a la administración de CEPA</b></h1>
+<div class=" tapa row placeholders">
 
 </div>
-
-<h2 class="sub-header">Section title</h2>
-<div class="table-responsive">
-
-
-</div>
+<p>Por favor, elija una de las opciones del menú superior, o bien una opcíon del menu de atajos ubicado en el costado izquierdo.</p>
 @stop

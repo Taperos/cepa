@@ -21,6 +21,40 @@ class ContactosController extends BaseController {
                         ->with('contactos', $contactos);
     }
     
+    public function AddContacto(){
+        
+        $validator = Validator::make(Input::all(), array(
+                    'nombre'      => 'required',
+                    'email'       => 'required',
+                    'mensaje'     => 'required',
+                        ), array(
+                    'required' => 'Este campo no puede quedar vacio',
+        ));
+
+        if ($validator->fails()) {
+
+            return Redirect::route('contacto')
+                            ->withErrors($validator)
+                            ->withInput();
+        } else {
+
+            $nombre      = Input::get('nombre');
+            $email       = Input::get('email');
+            $mensaje     = Input::get('mensaje');
+       
+            $contacto = new Contacto();
+
+            $contacto->nombre = $nombre;
+            $contacto->email  = $email;
+            $contacto->mensaje = $mensaje;
+
+            if ($contacto->save()) {
+                return Redirect::route('contacto')
+                                ->with('global', 'Mensaje enviado, te responderemos o te responderemos');
+            }
+        }
+    }
+    
    
 
 }

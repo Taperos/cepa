@@ -16,7 +16,7 @@ class CreateBecasTable extends Migration {
                    
                     $table->increments('id');
                     $table->string('nombre', 100);
-                    $table->string('descripcion');
+                    $table->longText('descripcion');
                     $table->timestamps();
                 });
 	}

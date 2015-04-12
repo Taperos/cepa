@@ -31,7 +31,7 @@ class HomeController extends BaseController {
     }
     
     public function beca() {
-         $becas = Beca::all();
+        $becas = Beca::all();
         return View::make('beca')
                 ->with('becas', $becas);
                 

@@ -53,6 +53,11 @@ Route::get('/contacto', array(
     'uses' => 'HomeController@contacto'
 )); 
 
+Route::post('/admin-agregar-contacto', array(
+    'as' => 'admin-agregar-contacto',
+    'uses' => 'ContactosController@AddContacto'
+));
+
 //RUTAS DONDE SÓLO PUEDES ACCEDER CUANDO TE LOGUEAS   
 Route::group(array('before' => 'auth'), function(){
     
@@ -108,7 +113,11 @@ Route::group(array('before' => 'auth'), function(){
     )); 
     
     //ACTIVIDADES
-    
+    Route::any('/show', array(
+    'as' => 'show',
+    'uses' => 'ActividadesController@show'
+    )); 
+     
     Route::get('/admin-ver-becas', array(
     'as' => 'admin-ver-becas',
     'uses' => 'BecasController@getVer'

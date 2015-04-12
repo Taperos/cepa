@@ -42,6 +42,22 @@
         {{ '*' }}
         @endif
     </div>
+    
+    <div class="form-group">
+        <div class="col-lg-2">
+            {{ Form::label('importante', 'IMPORTANTE', array('class' => 'col-sm-2 control-label'))}}
+        </div>
+        <div class="col-lg-1"> 
+            {{ Form::checkbox('importante', 1, true, array('class' => 'checkbox'));}}
+            @if($errors->has('importante'))
+            {{ $errors->first('importante') }}
+            @endif
+        </div>
+        @if($errors->has('importante'))
+        {{ '*' }}
+        @endif
+    </div>
+    
     <div class="form-group" style="background-color: #DADADA; padding: 20px; border-radius: 5px;">
         <div class="">
             {{ Form::submit('AGREGAR', array('class' => 'btn btn-primary'))}}        
