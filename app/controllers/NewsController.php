@@ -15,7 +15,7 @@ class NewsController extends BaseController {
      */
      public function getVer() {
         
-        $noticias = Noticia::paginate(3);
+        $noticias = Noticia::paginate(6);
         
         return View::make('admin.noticias.ver')
                         ->with('noticias', $noticias);
@@ -75,5 +75,72 @@ class NewsController extends BaseController {
             }
         }
     }
+    
+    public function getEditar($id){
+        $noticia = Noticia::find($id);
+        $categorias = Categoria::where('id', '!=', 0)->get()->lists('nombre', 'id');
+        $categorias_combo = array(0 => "Seleccione una categoría ... ") + $categorias;
+        $selected = array();
+        return View::make('admin.noticias.editar', compact('categorias_combo','selected' ))
+                        ->with('noticia', $noticia);
+    }
+    
+    public function postEditar(){
 
+        $noticia = Noticia::find(Input::get('id'));
+        
+        $titulo      = Input::get('titulo');
+        $descripcion = Input::get('descripcion');
+        $categoria   = Input::get('categoria');
+        
+        $noticia->titulo = $titulo;
+        $noticia->cuerpo = $descripcion;
+        $noticia->categoria_id = $categoria;
+        
+        if (Input::File('imagen')) {
+            //Si viene la imagen neuva debo buscar la imagen actual y reemplazarla
+           
+            //ruta de la imagen actual
+            $filename = public_path() . '/archivos/img/'.$noticia->imagen;
+            
+            if (File::exists($filename)) {
+                File::delete($filename);
+                
+                $imagen_nueva = Input::File('imagen')
+                            ->move('archivos/img', $titulo.'_noticia_'.Input::File('imagen')->getClientOriginalName());
+                $imagen_nueva = $titulo. '_noticia_'.Input::File('imagen')->getClientOriginalName();
+                
+   
+            } else{
+                 $imagen_nueva = Input::File('imagen')
+                            ->move('archivos/img', $titulo.'_noticia_'.Input::File('imagen')->getClientOriginalName());
+                $imagen_nueva = $titulo. '_noticia_'.Input::File('imagen')->getClientOriginalName();
+                
+                
+            } 
+             $noticia->imagen = $imagen_nueva;
+             
+          
+        }
+        
+          
+    
+     $noticia->save();
+     return Redirect::route('admin-ver-noticias')
+                        ->with('global', 'Noticia editada correctamente!');
+
+}
+
+public function borrar($id) {
+    $noticia = Noticia::find($id);
+        $filename = public_path() . '/archivos/img/'.$noticia->imagen;
+        File::delete($filename);
+        if($noticia->delete()){
+            return Redirect::route('admin-ver-noticias')
+                        ->with('global', 'Noticia eliminada correctamente!');
+        }else{
+             return Redirect::route('admin-ver-noticias')
+                        ->with('global', 'Error al tratar de eliminar, intente otra vez!');
+        }
+}
 }

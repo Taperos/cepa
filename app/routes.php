@@ -83,7 +83,6 @@ Route::group(array('before' => 'auth'), function(){
     'uses' => 'NewsController@getVer'
     ));
 
-
     Route::get('/admin-agregar-noticia', array(
     'as' => 'admin-agregar-noticia',
     'uses' => 'NewsController@getAddNew'
@@ -93,6 +92,21 @@ Route::group(array('before' => 'auth'), function(){
     'as' => 'admin-agregar-noticia',
     'uses' => 'NewsController@postAddNew'
     )); 
+    
+    Route::get('/admin-editar-noticia/{id}', array(
+    'as' => 'admin-editar-noticia',
+    'uses' => 'NewsController@getEditar'
+    ));
+    
+    Route::post('/admin-editar-noticia', array(
+    'as' => 'admin-editar-noticia',
+    'uses' => 'NewsController@postEditar'
+    )); 
+    
+    Route::get('/admin-eliminar-noticia/{id}', array(
+    'as' => 'admin-eliminar-noticia',
+    'uses' => 'NewsController@Borrar'
+    ));
     
     //ACTIVIDADES
     
@@ -162,6 +176,20 @@ Route::group(array('before' => 'auth'), function(){
     'uses' => 'TalleresController@postAddNew'
     ));
     
+    Route::get('/admin-eliminar-taller/{id}', array(
+    'as' => 'admin-eliminar-taller',
+    'uses' => 'TalleresController@Borrar'
+    ));
+    
+    Route::get('/admin-editar-taller/{id}', array(
+    'as' => 'admin-editar-taller',
+    'uses' => 'TalleresController@getEditar'
+    ));
+    
+    Route::post('/admin-editar-taller', array(
+    'as' => 'admin-editar-taller',
+    'uses' => 'TalleresController@postEditar'
+    )); 
        //GALERIAS
     
     Route::get('/admin-ver-galerias', array(

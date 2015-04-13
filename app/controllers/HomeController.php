@@ -20,7 +20,11 @@ class HomeController extends BaseController {
 
     public function index() {
 
-        return View::make('home');
+        $noticias = Noticia::with('categorias')->get();
+  
+        return View::make('home')
+                        ->with('noticias', $noticias);
+     
     }
 
     public function galeria() {

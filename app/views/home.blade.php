@@ -16,44 +16,33 @@
                     <div class="item"><img src="http://owlgraphic.com/owlcarousel/demos/assets/owl4.jpg" alt="3"></div>
 
                 </div>
-
-
+                <?php $contador = 1; ?>
+                @foreach($noticias as $noticia)
+                
                 <div class="noticia medium-4 large-4 columns">
                     <div class="row">
-                        <div class="noticia-img" style="background-image: url('images/3.jpg');">
-                            <div class="noticia-cuadro cuadro-color-1">
-                                <p class="brody">Noticia<br> Número 1</p>
+                        <div class="noticia-img" style="background-image: url('{{ URL::to('archivos/img/'.$noticia->imagen) }}');">
+                            <div class="noticia-cuadro cuadro-color-{{$contador}}">
+                                <p class="brody">{{$noticia->titulo}}</p>
                             </div>
                         </div>
                         <div class="texto-normal justificado">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim
+                            {{$noticia->cuerpo}}
+                            <span class="label label-primary">{{$noticia->categorias->nombre}}</span>
                         </div>
                     </div>
                 </div>
-                <div class="noticia medium-4 large-4 columns">
-                    <div class="row">
-                        <div class="noticia-img" style="background-image: url('images/9.jpg');">
-                            <div class="noticia-cuadro cuadro-color-2">
-                                <p class="brody">Noticia<br> Número 2</p>
-                            </div>
-                        </div>
-                        <div class="texto-normal justificado">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim
-                        </div>
-                    </div>
-                </div>
-                <div class="noticia medium-4 large-4 columns">
-                    <div class="row">
-                        <div class="noticia-img" style="background-image: url('images/6.jpg');">
-                            <div class="noticia-cuadro cuadro-color-3">
-                                <p class="brody">Noticia<br> Número 3</p>
-                            </div>
-                        </div>
-                        <div class="texto-normal justificado">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim
-                        </div>
-                    </div>
-                </div>
+                
+                  
+                <?php
+                $contador ++;
+                if ($contador == 4) {
+                    $contador = 1;
+                }
+                ?>
+                @endforeach
+                
+           
                
             </div>
 @stop

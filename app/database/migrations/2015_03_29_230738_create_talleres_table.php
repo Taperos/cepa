@@ -16,7 +16,7 @@ class CreateTalleresTable extends Migration {
                    
                     $table->increments('id');
                     $table->string('nombre', 100);
-                    $table->string('descripcion', 10000);
+                    $table->longText('descripcion');
                     $table->string('imagen');
                     $table->timestamps();
                 });
