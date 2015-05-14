@@ -3,3 +3,4 @@
 .env.php
 /nbproject/*
 /vendor/*
+/public/archivos/*

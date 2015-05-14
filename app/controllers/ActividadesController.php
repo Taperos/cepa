@@ -92,5 +92,52 @@ class ActividadesController extends BaseController {
         }
         echo json_encode($dates);
     }
+    
+    public function getEditar($id){
+        $actividad = Actividad::find($id);
+       
+        return View::make('admin.actividades.editar')
+                        ->with('actividad', $actividad);
+    }
+    
+    public function postEditar(){
+
+        $actividad = Actividad::find(Input::get('id'));
+        
+        $nombre     = Input::get('nombre');
+        $descripcion  = Input::get('descripcion');
+        $fecha       = Input::get('fecha');
+         if (Input::has('importante'))
+                {
+                   $importante = 1;
+                }
+                
+               else{
+                   $importante = 0;
+                }
+        
+        $actividad->nombre      = $nombre;
+        $actividad->descripcion = $descripcion;
+        $actividad->fecha_inicio       = $fecha;
+        $actividad->importante  = $importante;
+        
+
+        $actividad->save();
+        return Redirect::route('admin-ver-actividades')
+                        ->with('global', 'Actividad editada correctamente!');
+
+}
+
+public function borrar($id) {
+        $actividad = Actividad::find($id);
+       
+        if($actividad->delete()){
+            return Redirect::route('admin-ver-actividades')
+                        ->with('global', 'Actividad eliminada correctamente!');
+        }else{
+             return Redirect::route('admin-ver-actividades')
+                        ->with('global', 'Error al tratar de eliminar, intente otra vez!');
+        }
+}
 
 }

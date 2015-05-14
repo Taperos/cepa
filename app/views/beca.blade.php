@@ -9,7 +9,7 @@
                         </div>
                     @else
                     @foreach($becas as $beca)
-                        <div class="texto-normal becas"><p><a href="{{URL::to('ver-beca', [$beca->id]);}}"><b>{{$beca->nombre }}</b></a> - {{$beca->descripcion}}</p>@if($contador == 2) <img src="{{URL::to('images/becas.png')}}" alt="Becas" class="becas-img">   @endif</div>
+                        <div class="texto-normal becas justificado"><p><a href="{{URL::to('ver-beca', [$beca->id]);}}"><b>{{$beca->nombre }}</b></a> - {{$beca->descripcion}}</p>@if($contador == 2) <img src="{{URL::to('images/becas.png')}}" alt="Becas" class="becas-img">   @endif</div>
                         <?php $contador++;?>
                     @endforeach
                     @endif

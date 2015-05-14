@@ -30,7 +30,6 @@ class galeriasController extends BaseController {
    
         $validator = Validator::make(Input::all(), array(
                     'nombre'      => 'required',
-                    'descripcion' => 'required',
                     'images'    => 'required'
                         ), array(      
                     'required' => 'Este campo no puede quedar vacio',

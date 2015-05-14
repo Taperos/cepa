@@ -10,6 +10,7 @@
                 <th style="text-align: justify; text-justify: inter-word;">DESCRIPCIÓN</th>
                 <th style="text-align: justify; text-justify: inter-word;">FECHA</th>
                 <th style="text-align: justify; text-justify: inter-word;">IMPORTANTE</th>
+                <th colspan="2" style="width: 1%;">ACCIONES</th>
             </tr>
         </thead>
         <tbody>
@@ -20,11 +21,14 @@
                 <td>{{$actividad->fecha_inicio}}</td>
                 <td>
                     @if($actividad->importante == 1)
-                    {{'Sí'}}
+                    <span class="label label-danger">{{'Importante'}}</span>
                     @else
-                    {{'No'}}
+                    <span class="label label-primary">{{'Normal'}}</span>
                     @endif
                 </td>
+                <td><a style="text-decoration: none; color: #444;" href="{{URL::to('admin-editar-actividad', [$actividad->id]);}}"><i title="Editar" class="fa fa-pencil fa-fw fa-lg hover-grey"></i></a></td>
+                <td><a style="text-decoration: none; color: #444;" href="{{URL::to('admin-eliminar-actividad', [$actividad->id]);}}"><i title="Eliminar" class="fa fa-times fa-fw fa-lg hover-grey"></i></a></td>
+            
             </tr>
             @endforeach
         </tbody>

@@ -64,7 +64,7 @@ and open the template in the editor.
                     <div class="show-for-medium-down medium-8 columns" style="margin-top: 40px;">
                         <div id="cssmenu" style="float: right;">
                             <ul>
-                                <li class="active"><a href="{{ URL::route('home') }}">CEPA</a></li>
+                                <li><a href="{{ URL::route('home') }}">CEPA</a></li>
                                 <li><a href="{{ URL::route('beca') }}">BECAS</a></li>
                                 <li><a href="{{ URL::route('taller') }}">TALLERES</a></li>
                                 <li><a href="{{ URL::route('galeria') }}">GALERIA</a></li>
@@ -87,7 +87,7 @@ and open the template in the editor.
                     <div class="row show-for-large-up large-8 columns" style="margin-top: 40px;">
                         <div id="cssmenu">
                             <ul>
-                                <li class="active"><a href="{{ URL::route('home') }}">CEPA</a></li>
+                                <li><a href="{{ URL::route('home') }}">CEPA</a></li>
                                 <li><a href="{{ URL::route('beca') }}">BECAS</a></li>
                                 <li><a href="{{ URL::route('taller') }}">TALLERES</a></li>
                                 <li><a href="{{ URL::route('galeria') }}">GALERIA</a></li>

@@ -115,7 +115,6 @@ Route::group(array('before' => 'auth'), function(){
     'uses' => 'ActividadesController@getVer'
     ));
 
-
     Route::get('/admin-agregar-actividad', array(
     'as' => 'admin-agregar-actividad',
     'uses' => 'ActividadesController@getAddNew'
@@ -124,7 +123,22 @@ Route::group(array('before' => 'auth'), function(){
     Route::post('/admin-agregar-actividad', array(
     'as' => 'admin-agregar-actividad',
     'uses' => 'ActividadesController@postAddNew'
+    ));
+    
+     Route::get('/admin-editar-actividad/{id}', array(
+    'as' => 'admin-editar-actividad',
+    'uses' => 'ActividadesController@getEditar'
+    ));
+    
+    Route::post('/admin-editar-actividad', array(
+    'as' => 'admin-editar-actividad',
+    'uses' => 'ActividadesController@postEditar'
     )); 
+    
+    Route::get('/admin-eliminar-actividad/{id}', array(
+    'as' => 'admin-eliminar-actividad',
+    'uses' => 'ActividadesController@Borrar'
+    ));
     
     //ACTIVIDADES
     Route::any('/show', array(
