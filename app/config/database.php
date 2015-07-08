@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'cepa2',
-			'username'  => 'root',
-			'password'  => 'root',
+			'host'      => 'cepa.mysql.eu1.frbit.com',
+			'database'  => 'cepa',
+			'username'  => 'cepa',
+			'password'  => 'UHz.rwfAq0fG83908d+Nyh0A',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
