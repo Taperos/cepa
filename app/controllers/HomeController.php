@@ -55,7 +55,7 @@ class HomeController extends BaseController {
        
        var_dump($talleres);
         return View::make('taller')
-                ->with('talleres', $talleres);
+                ->with('talleres', $talleres)->render();;
                 
     }
     
