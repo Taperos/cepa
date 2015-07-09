@@ -2,7 +2,10 @@
 @section('content')
 <div id="owl-demo">
     <?php 
-    $contador = 1; ?>
+    $contador = 1; 
+    var_dump($talleres);
+    
+    ?>
     
     @if(!$talleres)
     
