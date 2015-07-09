@@ -3,7 +3,7 @@
 <div id="owl-demo">
     <?php 
     $contador = 1; ?>
-    
+    {{$talleres}}
     @if(empty($talleres[0]))
     
         <div class="texto-normal large-6 medium-6 small-12 large-uncentered medium-uncentered small-centered column">
