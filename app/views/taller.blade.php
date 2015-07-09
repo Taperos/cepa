@@ -4,13 +4,7 @@
     <?php 
     $contador = 1; ?>
     
-    @if(empty($talleres[0]))
-    
-        <div class="texto-normal large-6 medium-6 small-12 large-uncentered medium-uncentered small-centered column">
-            <p><b>Por el momento no hay talleres para mostrar.</b></p>
-        </div>
-   
-    @else
+  
     @foreach($talleres as $taller)
     <div class="item">
         <div class="talleres-img" style="background-image: url('{{ URL::to('archivos/img/'.$taller->imagen) }}')">
@@ -26,7 +20,7 @@
     }
     ?>
      @endforeach
-    @endif
+  
 
 </div>
 <div>
