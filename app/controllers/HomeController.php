@@ -52,6 +52,8 @@ class HomeController extends BaseController {
 
     public function taller() {
        $talleres = Taller::all();
+       
+       var_dump($talleres);
         return View::make('taller')
                 ->with('talleres', $talleres);
                 
