@@ -4,7 +4,7 @@
     <?php 
     $contador = 1; ?>
     
-    @if(empty($talleres[0]))
+    @if(!$talleres)
     
         <div class="texto-normal large-6 medium-6 small-12 large-uncentered medium-uncentered small-centered column">
             <p><b>Por el momento no hay talleres para mostrar.</b></p>
