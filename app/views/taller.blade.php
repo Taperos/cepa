@@ -2,12 +2,9 @@
 @section('content')
 <div id="owl-demo">
     <?php 
-    $contador = 1; 
-    var_dump($talleres);
+    $contador = 1; ?>
     
-    ?>
-    
-    @if(!$talleres)
+    @if(empty($talleres[0]))
     
         <div class="texto-normal large-6 medium-6 small-12 large-uncentered medium-uncentered small-centered column">
             <p><b>Por el momento no hay talleres para mostrar.</b></p>
